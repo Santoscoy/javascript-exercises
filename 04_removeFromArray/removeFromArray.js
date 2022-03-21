@@ -1,19 +1,22 @@
-const removeFromArray = function(array,itemToRemove) {
-let modifiedArray = [];
-for (let item of array)
-{   
-    
-    if(item === itemToRemove)
-    {
-        continue;
+const removeFromArray = function() {
+    let args =Array.from(arguments);
+    let array = args[0];
+    let argsToRemove = args.slice(1);
+    let modifiedArray = [];
+    for (let itemToRemove of argsToRemove)
+    {   
+            delete array[array.indexOf(itemToRemove)];
     }
-    else
+       
+    for (let item of array)
     {
-        modifiedArray.push(item);
+        if(item != null)
+            modifiedArray.push(item);
+       
     }
-}
-return modifiedArray;
+    return modifiedArray;
 };
+
 
 // Do not edit below this line
 module.exports = removeFromArray;
